@@ -703,7 +703,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/send-message", {
+      const response = await fetch("https://myportfolio-v4pi.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
