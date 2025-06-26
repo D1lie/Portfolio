@@ -1,8 +1,16 @@
-function Home() {
-  return (
-    <div className="w-screen h-screen">
-    </div>
-  )
-}
+import React from "react";
+import HeroSection from "./HeroSection";
+import NavigationBar from "./NavigationBar";
 
-export default Home
+const Home = () => {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <NavigationBar />
+      <main>
+        <HeroSection />
+      </main>
+    </div>
+  );
+};
+
+export default Home;
