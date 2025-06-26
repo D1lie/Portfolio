@@ -31,6 +31,7 @@ import { Badge } from "./components/ui/badge";
 import { Input } from "./components/ui/input";
 import { Textarea } from "./components/ui/textarea";
 import routes from "tempo-routes";
+const content = useRoutes(routes);
 
 // Services Section Component
 const Services = () => {
