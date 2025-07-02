@@ -13,22 +13,17 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Security middleware
-app.use(helmet());
+const allowedOrigin =
+  process.env.NODE_ENV === "production"
+    ? "https://iamalastor.netlify.app"
+    : "http://localhost:5173"; // or whichever dev origin you use
+
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ["https://iamalastor.netlify.app"]
-        : [
-            "https://iamalastor.netlify.app",
-            "http://localhost:5173",
-            "http://localhost:3000",
-            "https://iamalastor.netlify.app",
-          ],
+    origin: allowedOrigin,
     credentials: true,
   }),
 );
-
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
