@@ -13,14 +13,21 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Security middleware
-const allowedOrigin =
-  process.env.NODE_ENV === "production"
-    ? "https://iamalastor.netlify.app"
-    : "http://localhost:5173"; // or whichever dev origin you use
+const allowedOrigins = [
+  "https://iamalastor.netlify.app", // your production frontend
+  "http://localhost:5173",          // local dev (Vite)
+  "http://localhost:3000",          // optional: if testing with CRA or Express frontend
+];
 
 app.use(
   cors({
-    origin: allowedOrigin,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
