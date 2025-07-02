@@ -699,6 +699,8 @@ const Contact = () => {
     }
 
     try {
+      console.log("Backend API:", import.meta.env.VITE_API_URL); // ✅ Add this line
+      
       const response = await fetch(`${import.meta.env.VITE_API_URL}/send-message`, {
         method: "POST",
         headers: {
