@@ -699,7 +699,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch(`https://portfolio-backend-t139.onrender.com/send-message`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/send-message`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
