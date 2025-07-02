@@ -18,12 +18,12 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? ["https://vibrant-galois5-ufjeu.view-3.tempo-dev.app"]
+        ? ["https://iamalastor.netlify.app"]
         : [
-            "https://your-netlify-site.netlify.app",
+            "https://iamalastor.netlify.app",
             "http://localhost:5173",
             "http://localhost:3000",
-            "https://vibrant-galois5-ufjeu.view-3.tempo-dev.app",
+            "https://iamalastor.netlify.app",
           ],
     credentials: true,
   }),
